@@ -1,0 +1,63 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=4
+
+_global_script_classes=[ {
+"base": "Area",
+"class": "BoostArea",
+"language": "GDScript",
+"path": "res://scripts/BoostArea.gd"
+}, {
+"base": "Spatial",
+"class": "PathClone",
+"language": "GDScript",
+"path": "res://scripts/PathClone.gd"
+}, {
+"base": "Spatial",
+"class": "PathRotation",
+"language": "GDScript",
+"path": "res://scripts/PathRotation.gd"
+}, {
+"base": "Path",
+"class": "PathSegment",
+"language": "GDScript",
+"path": "res://scripts/PathSegment.gd"
+}, {
+"base": "ImmediateGeometry",
+"class": "Trail3D",
+"language": "GDScript",
+"path": "res://scripts/Trail3D.gd"
+}, {
+"base": "KinematicBody",
+"class": "VehicleKinematicBody",
+"language": "GDScript",
+"path": "res://scripts/VehicleKinematicBody.gd"
+} ]
+_global_script_class_icons={
+"BoostArea": "",
+"PathClone": "",
+"PathRotation": "",
+"PathSegment": "",
+"Trail3D": "",
+"VehicleKinematicBody": ""
+}
+
+[application]
+
+config/name="Racer"
+run/main_scene="res://Track.tscn"
+config/icon="res://icon.png"
+
+[editor_plugins]
+
+enabled=PoolStringArray( "my-addon" )
+
+[rendering]
+
+environment/default_environment="res://default_env.tres"
