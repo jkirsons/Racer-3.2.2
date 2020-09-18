@@ -182,6 +182,7 @@ material = SubResource( 7 )
 curve = SubResource( 8 )
 script = ExtResource( 4 )
 parent_path = NodePath("../../../../../Root/Track/MainPath")
+start_node = 0
 length = 24
 
 [node name="CSGPolygon" type="CSGPolygon" parent="Track/MainPath/Linked Paths/Rail"]
@@ -201,6 +202,7 @@ material = ExtResource( 6 )
 curve = SubResource( 8 )
 script = ExtResource( 4 )
 parent_path = NodePath("../../../../../Root/Track/MainPath")
+start_node = 0
 length = 24
 
 [node name="CSGPolygon" type="CSGPolygon" parent="Track/MainPath/Linked Paths/Rail2"]
@@ -226,103 +228,109 @@ material = SubResource( 9 )
 
 [node name="Vehicle" parent="." instance=ExtResource( 8 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.12198, 0 )
+instability_period = 1.6
+offset_position_max = Vector3( 0.07, 0.06, 0 )
 
 [node name="Trees" type="Spatial" parent="."]
 script = ExtResource( 9 )
 parent_path = NodePath("../Track/MainPath")
 object_res = ExtResource( 10 )
+start_pos = 0.0
 copies = 14
 space_between = 0.01
 offset = Vector3( -8.222, -0.409, 0 )
 random_rotate = true
+align_to_path = false
+clamp_to_ground = false
 mirror_x = true
 
 [node name="Trees__0" parent="Trees" instance=ExtResource( 10 )]
-transform = Transform( 0.7675, 0, 0.641049, 0, 1, 0, -0.641049, 0, 0.7675, 6.25064, -0.920042, -12.687 )
+transform = Transform( -0.805939, 0, 0.591999, 0, 1, 0, -0.591999, 0, -0.805939, 6.25064, -0.920042, -12.687 )
 
 [node name="Trees__0_(Mirror)" parent="Trees" instance=ExtResource( 10 )]
-transform = Transform( 0.712535, 0, -0.701636, 0, 1, 0, 0.701636, 0, 0.712535, -10.1636, 0.021072, -12.9619 )
+transform = Transform( 0.621681, 0, 0.783271, 0, 1, 0, -0.783271, 0, 0.621681, -10.1636, 0.021072, -12.9619 )
 
 [node name="Trees__1" parent="Trees" instance=ExtResource( 10 )]
-transform = Transform( -0.290198, 0, 0.956967, 0, 1, 0, -0.956967, 0, -0.290198, 6.49018, -1.13845, -28.9377 )
+transform = Transform( -0.542034, 0, 0.840357, 0, 1, 0, -0.840357, 0, -0.542034, 6.49018, -1.13845, -28.9377 )
 
 [node name="Trees__1_(Mirror)" parent="Trees" instance=ExtResource( 10 )]
-transform = Transform( -0.809212, 0, 0.587517, 0, 1, 0, -0.587517, 0, -0.809212, -9.88147, 0.372862, -29.2074 )
+transform = Transform( 0.869115, 0, -0.49461, 0, 1, 0, 0.49461, 0, 0.869115, -9.88147, 0.372862, -29.2074 )
 
 [node name="Trees__2" parent="Trees" instance=ExtResource( 10 )]
-transform = Transform( 0.863403, 0, -0.504515, 0, 1, 0, 0.504515, 0, 0.863403, 6.74592, -1.21605, -45.3377 )
+transform = Transform( 0.691657, 0, -0.722226, 0, 1, 0, 0.722226, 0, 0.691657, 6.74592, -1.21605, -45.3377 )
 
 [node name="Trees__2_(Mirror)" parent="Trees" instance=ExtResource( 10 )]
-transform = Transform( 0.703917, 0, 0.710283, 0, 1, 0, -0.710283, 0, 0.703917, -9.59646, 0.58442, -45.607 )
+transform = Transform( 0.354503, 0, 0.935055, 0, 1, 0, -0.935055, 0, 0.354503, -9.59646, 0.58442, -45.607 )
 
 [node name="Trees__3" parent="Trees" instance=ExtResource( 10 )]
-transform = Transform( 0.942014, 0, 0.335573, 0, 1, 0, -0.335573, 0, 0.942014, 7.00335, -1.28108, -61.8647 )
+transform = Transform( -0.997658, 0, 0.0683938, 0, 1, 0, -0.0683938, 0, -0.997658, 7.00335, -1.28108, -61.8647 )
 
 [node name="Trees__3_(Mirror)" parent="Trees" instance=ExtResource( 10 )]
-transform = Transform( -0.428162, 0, -0.903702, 0, 1, 0, 0.903702, 0, -0.428162, -9.30768, 0.784518, -62.1314 )
+transform = Transform( -0.999997, 0, -0.00244507, 0, 1, 0, 0.00244507, 0, -0.999997, -9.30768, 0.784518, -62.1314 )
 
 [node name="Trees__4" parent="Trees" instance=ExtResource( 10 )]
-transform = Transform( -0.907751, 0, 0.419509, 0, 1, 0, -0.419509, 0, -0.907751, 7.25578, -1.3542, -78.3159 )
+transform = Transform( -0.874189, 0, 0.485586, 0, 1, 0, -0.485586, 0, -0.874189, 7.25578, -1.3542, -78.3159 )
 
 [node name="Trees__4_(Mirror)" parent="Trees" instance=ExtResource( 10 )]
-transform = Transform( -0.97303, 0, -0.230678, 0, 1, 0, 0.230678, 0, -0.97303, -9.01721, 0.992435, -78.5827 )
+transform = Transform( 0.202678, 0, -0.979245, 0, 1, 0, 0.979245, 0, 0.202678, -9.01721, 0.992435, -78.5827 )
 
 [node name="Trees__5" parent="Trees" instance=ExtResource( 10 )]
-transform = Transform( -0.250176, 0, 0.9682, 0, 1, 0, -0.9682, 0, -0.250176, 7.48932, -1.48809, -94.5693 )
+transform = Transform( -0.622615, 0, 0.782528, 0, 1, 0, -0.782528, 0, -0.622615, 7.48932, -1.48809, -94.5693 )
 
 [node name="Trees__5_(Mirror)" parent="Trees" instance=ExtResource( 10 )]
-transform = Transform( -0.758968, 0, 0.651128, 0, 1, 0, -0.651128, 0, -0.758968, -8.72062, 1.26076, -94.8333 )
+transform = Transform( 0.826392, 0, -0.563095, 0, 1, 0, 0.563095, 0, 0.826392, -8.72062, 1.26076, -94.8333 )
 
 [node name="Trees__6" parent="Trees" instance=ExtResource( 10 )]
-transform = Transform( -0.0255274, 0, 0.999674, 0, 1, 0, -0.999674, 0, -0.0255274, 6.17971, -2.57536, -111.36 )
+transform = Transform( 0.818696, 0, 0.574227, 0, 1, 0, -0.574227, 0, 0.818696, 6.17971, -2.57536, -111.36 )
 
 [node name="Trees__6_(Mirror)" parent="Trees" instance=ExtResource( 10 )]
-transform = Transform( -0.514559, 0, 0.857455, 0, 1, 0, -0.857455, 0, -0.514559, -9.10168, 3.34841, -110.503 )
+transform = Transform( 0.999449, 0, -0.0332011, 0, 1, 0, 0.0332011, 0, 0.999449, -9.10168, 3.34841, -110.503 )
 
 [node name="Trees__7" parent="Trees" instance=ExtResource( 10 )]
-transform = Transform( -0.0717975, 0, -0.997419, 0, 1, 0, 0.997419, 0, -0.0717975, 5.44901, -2.91988, -127.193 )
+transform = Transform( -0.606729, 0, -0.794909, 0, 1, 0, 0.794909, 0, -0.606729, 5.44901, -2.91988, -127.193 )
 
 [node name="Trees__7_(Mirror)" parent="Trees" instance=ExtResource( 10 )]
-transform = Transform( -0.623907, 0, 0.781499, 0, 1, 0, -0.781499, 0, -0.623907, -9.04664, 4.79117, -127.161 )
+transform = Transform( -0.833221, 0, 0.55294, 0, 1, 0, -0.55294, 0, -0.833221, -9.04664, 4.79117, -127.161 )
 
 [node name="Trees__8" parent="Trees" instance=ExtResource( 10 )]
-transform = Transform( 0.486521, 0, 0.873669, 0, 1, 0, -0.873669, 0, 0.486521, 6.97319, -3.07131, -141.094 )
+transform = Transform( -0.955133, 0, 0.296176, 0, 1, 0, -0.296176, 0, -0.955133, 6.97319, -3.07131, -141.094 )
 
 [node name="Trees__8_(Mirror)" parent="Trees" instance=ExtResource( 10 )]
-transform = Transform( 0.673149, 0, -0.739507, 0, 1, 0, 0.739507, 0, 0.673149, -6.31311, 5.47269, -145.639 )
+transform = Transform( -0.8005, 0, 0.599333, 0, 1, 0, -0.599333, 0, -0.8005, -6.31311, 5.47269, -145.639 )
 
 [node name="Trees__9" parent="Trees" instance=ExtResource( 10 )]
-transform = Transform( 0.0588857, 0, 0.998265, 0, 1, 0, -0.998265, 0, 0.0588857, 13.1277, -3.64675, -154.521 )
+transform = Transform( 0.943375, 0, 0.331729, 0, 1, 0, -0.331729, 0, 0.943375, 13.1277, -3.64675, -154.521 )
 
 [node name="Trees__9_(Mirror)" parent="Trees" instance=ExtResource( 10 )]
-transform = Transform( -0.998155, 0, -0.0607192, 0, 1, 0, 0.0607192, 0, -0.998155, 1.19987, 5.04498, -161.687 )
+transform = Transform( 0.753697, 0, 0.657222, 0, 1, 0, -0.657222, 0, 0.753697, 1.19987, 5.04498, -161.687 )
 
 [node name="Trees__10" parent="Trees" instance=ExtResource( 10 )]
-transform = Transform( 0.704885, 0, 0.709322, 0, 1, 0, -0.709322, 0, 0.704885, 21.4176, -4.34321, -167.698 )
+transform = Transform( 0.997995, 0, -0.0632967, 0, 1, 0, 0.0632967, 0, 0.997995, 21.4176, -4.34321, -167.698 )
 
 [node name="Trees__10_(Mirror)" parent="Trees" instance=ExtResource( 10 )]
-transform = Transform( 0.580862, 0, -0.814002, 0, 1, 0, 0.814002, 0, 0.580862, 10.1772, 4.46391, -175.785 )
+transform = Transform( 0.998369, 0, -0.0570981, 0, 1, 0, 0.0570981, 0, 0.998369, 10.1772, 4.46391, -175.785 )
 
 [node name="Trees__11" parent="Trees" instance=ExtResource( 10 )]
-transform = Transform( 0.727738, 0, 0.685856, 0, 1, 0, -0.685856, 0, 0.727738, 30.8226, -4.79092, -180.565 )
+transform = Transform( -0.402823, 0, 0.915278, 0, 1, 0, -0.915278, 0, -0.402823, 30.8226, -4.79092, -180.565 )
 
 [node name="Trees__11_(Mirror)" parent="Trees" instance=ExtResource( 10 )]
-transform = Transform( 0.115505, 0, 0.993307, 0, 1, 0, -0.993307, 0, 0.115505, 19.9277, 4.11412, -189.073 )
+transform = Transform( -0.920856, 0, -0.389903, 0, 1, 0, 0.389903, 0, -0.920856, 19.9277, 4.11412, -189.073 )
 
 [node name="Trees__12" parent="Trees" instance=ExtResource( 10 )]
-transform = Transform( -0.46422, 0, -0.88572, 0, 1, 0, 0.88572, 0, -0.46422, 41.395, -4.8606, -188.106 )
+transform = Transform( -0.973351, 0, -0.229319, 0, 1, 0, 0.229319, 0, -0.973351, 41.395, -4.8606, -188.106 )
 
 [node name="Trees__12_(Mirror)" parent="Trees" instance=ExtResource( 10 )]
-transform = Transform( 0.763823, 0, 0.645425, 0, 1, 0, -0.645425, 0, 0.763823, 35.7217, 4.17685, -200.618 )
+transform = Transform( 0.198361, 0, 0.980129, 0, 1, 0, -0.980129, 0, 0.198361, 35.7217, 4.17685, -200.618 )
 
 [node name="Trees__13" parent="Trees" instance=ExtResource( 10 )]
-transform = Transform( -0.998778, 0, 0.0494125, 0, 1, 0, -0.0494125, 0, -0.998778, 55.9355, -4.90863, -193.469 )
+transform = Transform( -0.51618, 0, 0.85648, 0, 1, 0, -0.85648, 0, -0.51618, 55.9355, -4.90863, -193.469 )
 
 [node name="Trees__13_(Mirror)" parent="Trees" instance=ExtResource( 10 )]
-transform = Transform( -0.976853, 0, 0.213913, 0, 1, 0, -0.213913, 0, -0.976853, 52.0514, 4.2282, -206.578 )
+transform = Transform( 0.915307, 0, 0.402758, 0, 1, 0, -0.402758, 0, 0.915307, 52.0514, 4.2282, -206.578 )
 
 [node name="Area" parent="." instance=ExtResource( 12 )]
 transform = Transform( 0.00408046, -0.165991, 0.985988, 0.0116572, 0.986061, -0.166802, 0.944556, -0.0114523, -0.00220087, 70.3605, 17.4034, 0.45687 )
+speed = 100
 start_pos = 0.443
 offset = Vector3( 1.68, 0.58, 0 )
 
@@ -333,7 +341,11 @@ object_res = ExtResource( 11 )
 start_pos = 0.882
 copies = 12
 space_between = 0.007
+offset = Vector3( 0, 0, 0 )
+random_rotate = false
 align_to_path = true
+clamp_to_ground = false
+mirror_x = false
 
 [node name="Rings__0" parent="Rings" instance=ExtResource( 11 )]
 transform = Transform( -0.58927, -0.770768, -0.242233, -0.793434, 0.608622, -0.0064393, -0.152392, -0.188402, 0.970197, 3.42887, 0.59206, 184.014 )

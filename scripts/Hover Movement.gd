@@ -29,5 +29,5 @@ func _process(delta):
 		tween.start()
 	
 	var up = node.translation.direction_to(Vector3.UP * 3)
-	node.transform.basis = node.transform.basis + Basis(up.cross(Vector3.BACK), up, Vector3.BACK).orthonormalized()
+	#node.transform.basis = node.transform.basis + Basis(up.cross(Vector3.BACK), up, Vector3.BACK).orthonormalized()
 

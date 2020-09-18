@@ -1,7 +1,6 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://scripts/VehicleKinematicBody.gd" type="Script" id=1]
-[ext_resource path="res://scripts/Hover Movement.gd" type="Script" id=2]
 [ext_resource path="res://scripts/Trail3D.gd" type="Script" id=3]
 [ext_resource path="res://materials/pink.tres" type="Material" id=4]
 [ext_resource path="res://models/ship2.obj" type="ArrayMesh" id=5]
@@ -53,7 +52,6 @@ script = ExtResource( 1 )
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
 shape = SubResource( 1 )
-script = ExtResource( 2 )
 
 [node name="Tween" type="Tween" parent="CollisionShape"]
 

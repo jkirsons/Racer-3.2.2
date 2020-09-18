@@ -26,6 +26,14 @@ export var yaw_speed = 8;
 export var collision_speed_decrease = 10
 export var max_trail_length = 2.5
 
+# Vehicle instability
+export var instability_period : float = 1.8
+export var offset_position_max : Vector3 = Vector3(0.05, 0.03, 0.0)
+
+var offset_position : Vector3
+onready var timer_value : float = -1
+onready var instability_node = get_node("CollisionShape")
+
 onready var aabb = get_node("CollisionShape/ship").get_aabb()
 onready var initial_pos = get_node("CollisionShape/ship").global_transform.origin
 onready var ship_model = get_node("CollisionShape")
@@ -77,10 +85,12 @@ func _physics_process(delta):
 		delta * roll_speed)
 	
 	# ship model - roll & yaw
+	vehicle_instability(delta)
 	var ship_speed_precent = speed / max_speed
 	ship_model.transform.basis = ship_model.transform.basis.orthonormalized().slerp(
-		initial_basis.rotated(initial_basis.z, -steering * steering_roll * ship_speed_precent).rotated(initial_basis.y,-steering * steering_yaw * ship_speed_precent),
-		delta * roll_speed)
+		initial_basis.rotated(initial_basis.z, -steering * steering_roll * ship_speed_precent) \
+		.rotated(initial_basis.y, -steering * steering_yaw * ship_speed_precent), delta * roll_speed) \
+		.rotated(initial_basis.z, sign(instability_node.translation.x) * Vector3.UP.angle_to(instability_node.translation + Vector3.UP * 10))
 	
 	# Yaw
 	# - Project forward vector onto ground normal plane
@@ -108,8 +118,19 @@ func _physics_process(delta):
 		if speed > collision_speed_decrease and abs(y_rotation_angle) > 0.1:
 			speed -= collision_speed_decrease * abs(y_rotation_angle)
 			#print("Collision: " + str(collision_speed_decrease * abs(y_rotation_angle)))
-			
 
+func vehicle_instability(delta):
+	if timer_value > 0:
+		timer_value -= delta
+	else:
+		offset_position = Vector3((randf()*2-1) * offset_position_max.x, (randf()*2-1) * offset_position_max.y, (randf()*2-1) * offset_position_max.z)
+		var dist = (instability_node.translation - offset_position).length()
+		timer_value = max(dist / offset_position_max.length(), 0.6) * instability_period
+
+		var tween = $CollisionShape/Tween
+		tween.interpolate_property(instability_node, "translation",
+				instability_node.translation, offset_position, timer_value, Tween.TRANS_SINE, Tween.EASE_IN_OUT)
+		tween.start()
 
 func process_input(delta):
 		# speed
