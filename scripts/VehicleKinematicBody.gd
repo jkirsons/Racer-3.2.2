@@ -52,6 +52,7 @@ func _ready():
 func _physics_process(delta):
 	process_input(delta)
 	
+	# adjust trails to vehicle speed
 	trail_left.length = (speed / max_speed) * max_trail_length
 	trail_right.length = (speed / max_speed) * max_trail_length
 	trail_left.segment_length = trail_left.length / trail_left.density_lengthwise
@@ -86,7 +87,7 @@ func _physics_process(delta):
 	
 	# ship model - roll & yaw
 	vehicle_instability(delta)
-	var ship_speed_precent = speed / max_speed
+	var ship_speed_precent = min(1, speed / max_speed)
 	ship_model.transform.basis = ship_model.transform.basis.orthonormalized().slerp(
 		initial_basis.rotated(initial_basis.z, -steering * steering_roll * ship_speed_precent) \
 		.rotated(initial_basis.y, -steering * steering_yaw * ship_speed_precent), delta * roll_speed) \

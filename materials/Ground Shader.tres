@@ -1,0 +1,25 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=2]
+
+[sub_resource type="Shader" id=1]
+code = "shader_type spatial;
+
+void fragment() {
+	METALLIC = 0.0;
+	ROUGHNESS = 0.01;
+
+	vec4 pos = CAMERA_MATRIX * vec4(VERTEX, 1.0);
+	vec4 pos2 = inverse(WORLD_MATRIX) * pos;
+	float dist2 = pos2.x*pos2.x + pos2.y*pos2.y;
+	float max_dist = 120.0 * 120.0;
+
+	if( mod(pos.x, 10.0) > 1.0 && mod(pos.z, 10.0) > 1.0) {
+		ALBEDO = vec3(0.1, 0.3, 0.5);
+		ALPHA = 0.0;
+	  } else {
+		ALBEDO = vec3(1.0-dist2/max_dist*1.50, 0.0, 1.0-dist2/max_dist);
+		ALPHA = max(1.0 - dist2/max_dist, 0.0);
+	}
+}"
+
+[resource]
+shader = SubResource( 1 )
