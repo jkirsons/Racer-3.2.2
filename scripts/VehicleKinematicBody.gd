@@ -146,10 +146,10 @@ func process_input(delta):
 			speed = speed + min(friction_deceleration * delta, speed*-1)
 	
 	# steering
-	if Input.is_action_pressed("ui_left") && steering > -max_steering:
+	if Input.is_action_pressed("ui_left") && steering > -max_steering * Input.get_action_strength("ui_left"):
 		steering -= steering_speed * delta
-	elif Input.is_action_pressed("ui_right") && steering < max_steering:
-		steering += steering_speed * delta
+	elif Input.is_action_pressed("ui_right") && steering < max_steering * Input.get_action_strength("ui_right"):
+		steering += steering_speed * delta 
 	elif steering != 0:
 		if steering > 0:
 			steering -= min(steering, steering_speed * delta * steering_center_multiplier)

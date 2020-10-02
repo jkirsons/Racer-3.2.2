@@ -1,0 +1,21 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=2]
+
+[sub_resource type="Shader" id=1]
+code = "shader_type spatial;
+
+
+void fragment() {
+	METALLIC = 0.0;
+	ROUGHNESS = 1.0;
+
+	float depth = texture(DEPTH_TEXTURE, SCREEN_UV).r;
+	depth = depth * 2.0 - 1.0;
+	depth = PROJECTION_MATRIX[3][2] / (depth + PROJECTION_MATRIX[2][2]);
+	depth = depth + VERTEX.z; 
+	depth = exp(-depth * 1.0);
+
+	ALBEDO =  vec3(1.0-depth, 0.0, 0.0);
+}"
+
+[resource]
+shader = SubResource( 1 )

@@ -110,5 +110,5 @@ func update_curve():
 			add_child(m2)
 			m2.set_owner(get_tree().get_edited_scene_root())
 		
-		print("add child " + str(i))
+		#print("add child " + str(i))
 	

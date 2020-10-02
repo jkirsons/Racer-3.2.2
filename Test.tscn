@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://materials/Flame.tres" type="Material" id=1]
+
+[node name="Spatial" type="Spatial"]
+
+[node name="CSGBox" type="CSGBox" parent="."]
+height = 0.778529
+material = ExtResource( 1 )
+
+[node name="CSGBox2" type="CSGBox" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.51111, -1.71753, 1.99678 )
+width = 7.31347
+depth = 18.3327
